@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day12_assign1</title>
+    <style>
+        .cont{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: blanchedalmond;
+            width: 350px;
+            margin-left: 600px;
+            height: 300px;
+            margin-top: 150px;
+        }
+        .in{
+            display: flex;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        .out{
+            display: flex;
+        text-align: center;
+        margin-left: 14px;
+        margin-top: 30px;
+        font-size: 18px;
+        }
+        #in_num{
+            margin-left: 10px;
+            padding: 3px;
+        }
+        #out_num{
+            margin-left: 10px;
+            padding: 3px;
+        }
+        #reverse{
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 15px;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            border-color: white;
+        }
+        #reverse:hover{
+            background-color: white;
+            color: black;
+        }
+        #reverse:active{
+            transform: scale(0.9,0.9);
+        }
+    </style>
+</head>
+<body>
+    <!-- <p id="revno"></p> -->
+
+    <div class="cont">
+        <div>
+            <h1>Number Reversing</h1>
+        </div>
+
+        <div class="in">
+            Enter the number : <input type="text" id="in_num" placeholder="Number to be Reversed">
+        </div>
+
+        <div>
+            <input type="submit" id="reverse" value="Reverse">
+        </div>
+
+        <div class="out">
+            Reversed Num : <input type="number" id="out_num" placeholder="Reversed Number" readonly>
+        </div>
+    </div>
+    <script>
+
+        document.getElementById("reverse").addEventListener('click',function(){
+            let inn=parseInt(document.getElementById("in_num").value);
+
+            let result="";
+
+            function reverse(num){
+            let rev_num=0;
+            while(num!==0){
+                let rem=num%10;
+                rev_num=rev_num*10+rem;
+                num=Math.floor(num/10);
+            }
+            return rev_num;
+            
+        }
+        let reversed=reverse(inn);
+
+        document.getElementById("out_num").value=reversed;
+
+        })
+
+    </script>
+</body>
+</html>
